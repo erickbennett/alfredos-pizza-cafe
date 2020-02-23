@@ -3,13 +3,80 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p ${PORT:-9080}",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 9080",
+    "test": "jest --env=jsdom --watch --coverage=true",
+    "docker-build": "docker build -t ${REPO} .",
+    "docker-push": "docker push ${REPO}:latest",
+    "docker-run": "docker run -p 9080:9080 ${REPO}:latest"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^1.10.7",
+    "dotenv": "^8.2.0",
     "next": "9.2.2",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "react-spring": "^8.0.27",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "jest": "^24.9.0"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "test": {
+        "presets": [
+          [
+            "next/babel",
+            {
+              "preset-env": {
+                "modules": "commonjs"
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      }
+    }
   }
 }
