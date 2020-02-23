@@ -1,8 +1,9 @@
 import PageContent from './common/PageContent';
+import Header from './common/Header';
 
 const About = () => (
-  <PageContent>
-    <h1 className="title">Welcome to Alfredo's Pizza Cafe</h1>
+  <PageContent backgroundImage="/images/about.png">
+    <Header>About Alfredo's</Header>
   </PageContent>
 );
 

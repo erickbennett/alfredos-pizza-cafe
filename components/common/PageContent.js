@@ -8,6 +8,22 @@ const Content = styled.div`
   align-content: center;
 `;
 
-const PageContent = ({ children }) => <Content>{children}</Content>;
+const Background = styled.div`
+  height: 100%;
+  width: 100%;
+
+  background-image: ${props =>
+    props.src ? `url(${props.src})` : props.theme.white};
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border: 2px solid ${props => props.theme.black};
+`;
+
+const PageContent = ({ children, backgroundImage }) => (
+  <Content>
+    <Background src={backgroundImage}>{children}</Background>
+  </Content>
+);
 
 export default PageContent;

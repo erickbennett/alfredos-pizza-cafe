@@ -1,4 +1,4 @@
-import AnimatedWrapper from '../common/AnimatedWrapper';
+import Icon from './Icon';
 import { pages } from '../../data';
 import styled from 'styled-components';
 
@@ -20,39 +20,11 @@ const IconContainer = styled.div`
   background-color: ${props => props.theme.navGrey};
 `;
 
-const Icon = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 99%;
-`;
-
-const IconImg = styled.div`
-  height: 127px;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    object-fit: contain;
-  }
-`;
-
-const Label = styled.span`
-  margin: 20px 0 0 0;
-  font-family: ${props => props.theme.fontHeavy};
-  font-size: 18px;
-  line-height: 22px;
-  color: ${props => (props.highlighted ? props.theme.red : props.theme.grey)};
-  text-transform: uppercase;
-`;
-
 const VerticalSpacer = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
   background-color: ${props => props.theme.navSpacerGrey};
   width: 1px;
-  height: 170px;
+  height: 95%;
 `;
 
 function Footer({ active }) {
@@ -60,16 +32,9 @@ function Footer({ active }) {
 
   return (
     <Nav>
-      {pages.map(({ path, title, img, active_img }, i) => (
+      {pages.map(({ path, title, img }, i) => (
         <IconContainer key={title}>
-          <Icon>
-            <AnimatedWrapper path={path}>
-              <IconImg>
-                <img src={active === title ? active_img : img} alt={title} />
-                <Label highlighted={active === title ? 1 : 0}>{title}</Label>
-              </IconImg>
-            </AnimatedWrapper>
-          </Icon>
+          <Icon path={path} title={title} img={img} active={active} />
           <VerticalSpacer visible={i < pageCount - 1 ? 1 : 0} />
         </IconContainer>
       ))}

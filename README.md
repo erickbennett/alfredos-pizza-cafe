@@ -10,4 +10,4 @@
   * [ ] Desktop large 1920 x 1080
   * [ ] iPad 768x1024
   * [ ] iPhone 375x667
-* [ ] more
+* [ ] Replace stock images

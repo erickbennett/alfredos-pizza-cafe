@@ -8,6 +8,7 @@ export const theme = {
   white: '#ffffff',
   black: '#393939',
   grey: '#999999',
+  steel: '#535154',
   red: '#eb2226',
 
   bsNav: '0 0 15px 0 rgba(0, 0, 0, 0.22)',
@@ -147,11 +148,11 @@ export const globals = `
   html{
     box-sizing: border-box;
     font-size: 10px;
-    background-color: ${theme.white};
+    background-color: ${theme.black};
     -webkit-tap-highlight-color: transparent;
 
     @media (min-height: ${theme.maxHeight}) {
-      overflow: hidden;
+      /* overflow: hidden; */
     }
   }
 
