@@ -2,8 +2,12 @@ export const theme = {
   maxHeight: '768px',
   maxWidth: '1024px',
 
+  navGrey: '#fbfbfb',
+  navSpacerGrey: '#e0e0e0',
+
   white: '#ffffff',
   black: '#393939',
+  grey: '#999999',
   red: '#eb2226',
 
   bsNav: '0 0 15px 0 rgba(0, 0, 0, 0.22)',

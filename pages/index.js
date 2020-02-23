@@ -5,7 +5,7 @@ import Nav from '../components/common/Nav';
 const HomePage = () => (
   <Layout>
     <Home />
-    <Nav />
+    <Nav active={'Home'} />
   </Layout>
 );
 

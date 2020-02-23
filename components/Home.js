@@ -1,19 +1,27 @@
+import PageContent from './common/PageContent';
 import styled from 'styled-components';
 
-const PageContent = styled.main`
-  height: 80%;
+const Background = styled.div`
+  height: 100%;
   width: 100%;
-  background-color: ${props => props.theme.red};
-  display: flex;
-  flex-direction: column;
-  align-content: center;
 
-  padding: 40px;
+  background-image: url('/pizza_parlor.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border: 2px solid ${props => props.theme.black};
+
+  h1 {
+    color: ${props => props.theme.white};
+    text-indent: 40px;
+  }
 `;
 
 const Home = () => (
   <PageContent>
-    <h1 className="title">Welcome to Alfredo's Pizza Cafe</h1>
+    <Background>
+      <h1 className="title">Welcome to Alfredo's Pizza Cafe</h1>
+    </Background>
   </PageContent>
 );
 
