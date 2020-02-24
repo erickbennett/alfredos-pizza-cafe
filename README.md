@@ -29,15 +29,17 @@ There are npm scripts to simplify Docker commands:
 
 ## Project TODO:
 
-- [x] feature: add home page
-- [x] feature: setup styled components
-- [x] feature: add favicon
-- [x] feature: add about, reviews, and menu pages
-- [x] feature: add placeholder pizza component and animations for menu page
-- [ ] feature: add media queries
+- [x] add home page
+- [x] setup styled components
+- [x] add favicon
+- [x] add about, reviews, and menu pages
+- [x] add placeholder pizza component and animations for menu page
+- [ ] add media queries
   - [ ] Desktop sm 1024x768
   - [ ] Desktop large 1920 x 1080
   - [ ] iPad 768x1024
   - [ ] iPhone 375x667
 - [ ] Replace stock images
 - [ ] Dark mode
+- [ ] add modal with click outside
+- [ ] add mock email implementation?

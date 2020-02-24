@@ -8,7 +8,7 @@ import {
   INNER_CARD_ELEMENT_TRANSITION_UP,
   INNER_CARD_ELEMENT_TRANSITION_DOWN
 } from '../styles/animations';
-
+import Modal from './common/Modal';
 import styled from 'styled-components';
 
 const PizzaOven = styled.div`
@@ -30,11 +30,31 @@ const PizzaOven = styled.div`
 const PizzaBox = styled(animated.div)`
   background-color: none;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
+`;
+
+const IconImg = styled.img`
+  height: 60px;
+  object-fit: contain;
+`;
+
+const Label = styled.span`
+  font-family: ${props => props.theme.fontHeavy};
+  font-size: 18px;
+  line-height: 22px;
+  color: ${props => (props.highlighted ? 'tomato' : props.theme.steel)};
+  text-transform: uppercase;
+  text-align: center;
 `;
 
 function Menu() {
   const [pizzas, setPizzas] = useState(PIZZAS);
+
+  const [on, toggle] = useState(false);
+  const [item, setItem] = useState({ title: '', img: '' });
 
   const pizzasTransition = useTransition(pizzas, item => item.title, {
     from: { ...INNER_CARD_ELEMENT_TRANSITION_DOWN },
@@ -51,15 +71,32 @@ function Menu() {
     }
   });
 
+  const selectItem = item => {
+    setItem(item);
+    toggle(!on);
+  };
+
   return (
     <PageContent>
+      {on && (
+        <Modal title={item.title} toggle={() => toggle(false)}>
+          <IconImg alt={item.title} src={`/images/${item.img}`} />
+        </Modal>
+      )}
       <Header>
         Our Pies! Not hot circles of garbage like that other Alfredo!
       </Header>
       <PizzaOven>
         {pizzasTransition.map(({ item, key, props }) => (
-          <PizzaBox key={item.title} style={props}>
-            <Icon title={item.title} img={item.img} />
+          <PizzaBox
+            key={item.title}
+            style={props}
+            onClick={() => selectItem(item)}
+          >
+            <>
+              <IconImg alt={item.title} src={`/images/${item.img}`} />
+              <Label>{item.title}</Label>
+            </>
           </PizzaBox>
         ))}
       </PizzaOven>
