@@ -12,8 +12,7 @@ const Background = styled.div`
   height: 100%;
   width: 100%;
 
-  background-image: ${props =>
-    props.src ? `url(${props.src})` : props.theme.white};
+  background-image: ${props => (props.src ? `url(${props.src})` : 'none')};
   background-size: cover;
   background-repeat: no-repeat;
 

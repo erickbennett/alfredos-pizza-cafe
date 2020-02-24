@@ -16,6 +16,8 @@ const PizzaOven = styled.div`
   width: 100%;
   padding: 10px;
 
+  background-image: linear-gradient(180deg, #ffffff, #f8f8f8);
+
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 25px 25px;
@@ -26,9 +28,7 @@ const PizzaOven = styled.div`
 `;
 
 const PizzaBox = styled(animated.div)`
-  background-image: linear-gradient(180deg, #ffffff, #f2f2f2);
-  height: 150px;
-  width: 150px;
+  background-color: none;
   display: flex;
   border-radius: 4px;
 `;
@@ -52,7 +52,7 @@ function Menu() {
   });
 
   return (
-    <PageContent backgroundImage="/images/menu.png">
+    <PageContent>
       <Header>
         Our Pies! Not hot circles of garbage like that other Alfredo!
       </Header>
