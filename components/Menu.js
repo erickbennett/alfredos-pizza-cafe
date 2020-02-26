@@ -11,6 +11,8 @@ import {
 import Modal from './common/Modal';
 import styled from 'styled-components';
 
+import PageModal from './common/PageModal';
+
 const PizzaOven = styled.div`
   height: 530px;
   width: 100%;
@@ -50,6 +52,17 @@ const Label = styled.span`
   text-align: center;
 `;
 
+const Page = styled.div`
+  height: 300px;
+  width: 400px;
+  border: 2px solid tomato;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 function Menu() {
   const [pizzas, setPizzas] = useState(PIZZAS);
 
@@ -76,12 +89,28 @@ function Menu() {
     toggle(!on);
   };
 
+  const SinglePage = ({ number, title, content }) => (
+    <Page number={number} title={title} content={content}>
+      <h2>{title}</h2>
+      <p>{content}</p>
+      <p>{number}</p>
+    </Page>
+  );
+
+  const pages = [
+    <SinglePage number={1} title={'Page One'} content={'Ur contents'} />,
+    <SinglePage number={2} title={'Page Two'} content={'Ur contents'} />,
+    <SinglePage number={3} title={'Page Three'} content={'Ur contents'} />
+  ];
+
   return (
     <PageContent>
       {on && (
-        <Modal title={item.title} toggle={() => toggle(false)}>
-          <IconImg alt={item.title} src={`/images/${item.img}`} />
-        </Modal>
+        <PageModal
+          title={item.title}
+          pages={pages}
+          toggle={() => toggle(false)}
+        />
       )}
       <Header>
         Our Pies! Not hot circles of garbage like that other Alfredo!
