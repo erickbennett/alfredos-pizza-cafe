@@ -95,6 +95,7 @@ function PageModal({ title, toggle, pages }) {
         {pages[page]}
         <Pagination>
           <p onClick={prev}>←Prev </p>
+          <span>{page + 1}</span>
           <p onClick={next}> Next→</p>
         </Pagination>
       </Message>

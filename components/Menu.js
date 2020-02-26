@@ -89,18 +89,17 @@ function Menu() {
     toggle(!on);
   };
 
-  const SinglePage = ({ number, title, content }) => (
-    <Page number={number} title={title} content={content}>
+  const SinglePage = ({ title, content }) => (
+    <Page title={title} content={content}>
       <h2>{title}</h2>
       <p>{content}</p>
-      <p>{number}</p>
     </Page>
   );
 
   const pages = [
-    <SinglePage number={1} title={'Page One'} content={'Ur contents'} />,
-    <SinglePage number={2} title={'Page Two'} content={'Ur contents'} />,
-    <SinglePage number={3} title={'Page Three'} content={'Ur contents'} />
+    <SinglePage title={'Page One'} content={'Ur contents'} />,
+    <SinglePage title={'Page Two'} content={'Ur contents'} />,
+    <SinglePage title={'Page Three'} content={'Ur contents'} />
   ];
 
   return (
