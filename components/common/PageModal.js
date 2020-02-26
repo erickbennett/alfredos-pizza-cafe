@@ -67,6 +67,8 @@ const Pagination = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
+
   p {
     margin: 0;
     padding: 0;
