@@ -63,6 +63,16 @@ const CloseButton = styled.button`
   color: #ffffff;
 `;
 
+const Pagination = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
 function PageModal({ title, toggle, pages }) {
   const ref = useRef();
   useOnClickOutside(ref, () => toggle());
@@ -81,10 +91,10 @@ function PageModal({ title, toggle, pages }) {
 
       <Message>
         {pages[page]}
-        <div>
-          {page > 0 && <span onClick={prev}>←Prev </span>}
-          <span onClick={next}> Next→</span>
-        </div>
+        <Pagination>
+          <p onClick={prev}>←Prev </p>
+          <p onClick={next}> Next→</p>
+        </Pagination>
       </Message>
     </ModalCard>
   );
