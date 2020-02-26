@@ -54,7 +54,7 @@ const Label = styled.span`
 
 const Page = styled.div`
   height: 300px;
-  width: 400px;
+  width: 100%;
   border: 2px solid tomato;
 
   display: flex;

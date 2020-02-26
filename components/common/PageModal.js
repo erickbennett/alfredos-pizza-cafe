@@ -35,6 +35,7 @@ const Message = styled.div`
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -68,14 +69,8 @@ function PageModal({ title, toggle, pages }) {
 
   const [page, setPage] = useState(0);
   const pagesLen = pages.length;
-
-  const next = () => {
-    if (page + 1 < pagesLen) setPage(page + 1);
-  };
-
-  const prev = () => {
-    if (page - 1 >= 0) setPage(page - 1);
-  };
+  const next = () => page + 1 < pagesLen && setPage(page + 1);
+  const prev = () => page - 1 >= 0 && setPage(page - 1);
 
   return (
     <ModalCard ref={ref}>
@@ -85,9 +80,11 @@ function PageModal({ title, toggle, pages }) {
       </Title>
 
       <Message>
-        {page > 0 && <span onClick={prev}>Prev</span>}
         {pages[page]}
-        <span onClick={next}>Next</span>
+        <div>
+          {page > 0 && <span onClick={prev}>←Prev </span>}
+          <span onClick={next}> Next→</span>
+        </div>
       </Message>
     </ModalCard>
   );
